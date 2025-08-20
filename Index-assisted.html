@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin-top: 100px; 
+            gap: 10px;    
+        }
+        
+        .container div {
+            display: flex;
+            align-items: center;
+        }
+
+        .senter{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-content: space-around;
+            color: rgba(121, 4, 167, 0.623);
+            font-size: 30px;
+
+        }
+
+        .ATCBUTTON {
+            height: 50%;
+            background-color: transparent;
+            border: none;
+        }
+
+        .kjøp{
+            width: 60px;
+            height: 40px;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border-radius: 3em;
+            border: 1px solid lightgrey;
+        }
+
+        .cartImage {
+            width: 60px;
+            cursor: pointer;
+        }
+
+        .divButton {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        #inventory {
+            display: none;;
+            position: fixed;
+            border: solid 3px brown;
+            background-color: aquamarine;
+            top: 80px;
+            right: 20px;
+            width: 200px;
+            height: 400px;
+            padding: 15px;
+            border-radius: 30px;
+            margin-top: 15px;
+        }
+
+        #inventory.show {
+            display: block;
+        }
+
+        #chartH3 {
+            text-align: center;
+            color: brown;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+
+
+</style>
+</head>
+<body>
+    <div class="divButton">
+        <button onclick="document.getElementById('inventory').classList.toggle('show')">
+        <img class="cartImage" src="Images/Shopping Cart.png" alt="shoppingCart">
+        </button>
+    </div>
+    
+    <div id="inventory">
+        <h3 id="chartH3">Handlekurv</h3>
+        <div>
+            <div id="V1"></div>
+            <div id="V2"></div>
+            <div id="V3"></div>
+            <div id="V4"></div>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex; flex-direction: column;">
+        <div>
+            <img id="Discman" src="Images/Discman.jpg" width="200" alt="">
+            <button class="ATCBUTTON" onclick="addToCart('Discman')">
+                <img class="kjøp" src="Images/add to cart.jpg" alt="Add">
+            
+            </button>
+        </div>
+        <div>
+            <img id="Nokia" src="Images/NokiaTLF.jpg" width="200" alt="">
+            <button class="ATCBUTTON" onclick="addToCart('Nokia')">
+                <img class="kjøp" src="Images/add to cart.jpg" alt="Add">
+            </button>
+        </div>
+        <div>
+            <img id="RetroPC" src="Images/RetroPC.jpg" width="200" alt="">
+            <button class="ATCBUTTON" onclick="addToCart('RetroPC')">
+                <img class="kjøp" src="Images/add to cart.jpg" alt="Add">
+            </button>
+        </div>
+        <div>
+            <img id="Camera" src="Images/Camera.jpg" width="200" alt="">
+            <button class="ATCBUTTON" onclick="addToCart('Camera')">
+                <img class="kjøp" src="Images/add to cart.jpg" alt="Add">
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        // Inventory object to track item counts
+        inventory = {
+            Discman: 0,
+            Nokia: 0,
+            RetroPC: 0,
+            Camera: 0
+        };
+
+        // Function to add item to inventory
+        function addToCart(item) {
+            inventory[item]++;
+            updateInventoryDisplay();
+        }
+
+        // Function to update the inventory display
+        function updateInventoryDisplay() {
+            document.getElementById('V1').textContent = inventory.Discman > 0 ? `Discman x${inventory.Discman}` : '';
+            document.getElementById('V2').textContent = inventory.Nokia > 0 ? `Nokia x${inventory.Nokia}` : '';
+            document.getElementById('V3').textContent = inventory.RetroPC > 0 ? `RetroPC x${inventory.RetroPC}` : '';
+            document.getElementById('V4').textContent = inventory.Camera > 0 ? `Camera x${inventory.Camera}` : '';
+        }
+    </script>
+</body>
+</html>
