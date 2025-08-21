@@ -287,10 +287,22 @@
             RetroPC = 0;
             Camera = 0;
 
-            removeCart1()
-            removeCart2()
-            removeCart3()
-            removeCart4()
+            document.getElementById('item1').innerHTML = ``;
+            document.getElementById('removecart1').classList.remove('removecartshow1')
+            document.getElementById('separator1').classList.remove('separatorshow1')
+            
+            document.getElementById('item2').innerHTML = ``;
+            document.getElementById('removecart2').classList.remove('removecartshow2')
+            document.getElementById('separator2').classList.remove('separatorshow2')
+            
+            document.getElementById('item3').innerHTML = ``;
+            document.getElementById('removecart3').classList.remove('removecartshow3')
+            document.getElementById('separator3').classList.remove('separatorshow3')
+            
+            document.getElementById('item4').innerHTML = ``;
+            document.getElementById('removecart4').classList.remove('removecartshow4')
+            document.getElementById('separator4').classList.remove('separatorshow4')
+
             ToggleClearCart()
             
         }
